@@ -150,12 +150,22 @@ async function allowedChannel(cfg, channelId) {
 
 async function handleReaction(event, botUserId) {
   const { cfg } = loadRuntime();
-  if (!cfg.ownerUserIds.includes(event.user_id)) return;
-  if (!(await allowedChannel(cfg, event.channel_id))) return;
-
   const emoji = emojiKey(event.emoji);
+  log("reaction received", { emoji, userId: event.user_id, channelId: event.channel_id, messageId: event.message_id });
+  if (!cfg.ownerUserIds.includes(event.user_id)) {
+    log("ignored reaction from non-owner", event.user_id);
+    return;
+  }
+  if (!(await allowedChannel(cfg, event.channel_id))) {
+    log("ignored reaction in unlisted channel", event.channel_id);
+    return;
+  }
+
   const action = cfg.emojiActions[emoji];
-  if (!action) return;
+  if (!action) {
+    log("ignored unmapped emoji", emoji);
+    return;
+  }
 
   const msg = await fetchMessage(event.channel_id, event.message_id);
   if (msg?.author?.id !== botUserId) {
@@ -178,15 +188,18 @@ async function handleReaction(event, botUserId) {
   try {
     if (action === "backup") {
       const code = await runBackup(cfg.backupScript);
+      log("backup finished", { code });
       await addOwnReaction(event.channel_id, event.message_id, code === 0 ? "☑️" : "⚠️");
     } else if (action === "archive") {
       const notionOk = await createNotionPage(cfg, payload);
+      log("notion archive finished", { notionOk });
       await addOwnReaction(event.channel_id, event.message_id, notionOk ? "📥" : "⚠️");
     } else if (action === "first_principles") {
       await sendMessage(cfg.firstPrinciplesChannelId, `请用第一性原理分析这条 OpenClaw 回复：\n${url}\n\n${content.slice(0, 1600)}`);
       await addOwnReaction(event.channel_id, event.message_id, "🧾");
     } else if (action === "pin_local") {
       appendTodo("todo", payload);
+      log("todo append finished", { file: cfg.todoMarkdown });
       await addOwnReaction(event.channel_id, event.message_id, "📍");
     }
   } catch (err) {
