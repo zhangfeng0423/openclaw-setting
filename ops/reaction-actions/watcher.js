@@ -78,11 +78,12 @@ function messageUrl(guildId, channelId, messageId) {
   return `https://discord.com/channels/${guildId}/${channelId}/${messageId}`;
 }
 
-function appendLocalArchive(kind, payload) {
-  const file = payload.inboxMarkdown;
+function appendTodo(kind, payload) {
+  const file = payload.todoMarkdown;
   fs.mkdirSync(path.dirname(file), { recursive: true });
   const content = [
     `\n## ${new Date().toISOString()} ${kind}`,
+    `- [ ] ${payload.content?.split(/\r?\n/)[0]?.slice(0, 160) || "Review OpenClaw reply"}`,
     `- URL: ${payload.url}`,
     `- Channel: ${payload.channelId}`,
     `- Message: ${payload.messageId}`,
@@ -170,7 +171,7 @@ async function handleReaction(event, botUserId) {
     messageId: event.message_id,
     author: `${msg.author?.username || "unknown"} (${msg.author?.id || "unknown"})`,
     content,
-    inboxMarkdown: cfg.inboxMarkdown,
+    todoMarkdown: cfg.todoMarkdown,
   };
 
   log("action", action, emoji, url);
@@ -179,15 +180,13 @@ async function handleReaction(event, botUserId) {
       const code = await runBackup(cfg.backupScript);
       await addOwnReaction(event.channel_id, event.message_id, code === 0 ? "☑️" : "⚠️");
     } else if (action === "archive") {
-      let notionOk = false;
-      try { notionOk = await createNotionPage(cfg, payload); } catch (err) { log("notion failed", String(err.message || err)); }
-      appendLocalArchive(notionOk ? "notion-archive" : "local-archive", payload);
-      await addOwnReaction(event.channel_id, event.message_id, notionOk ? "📥" : "🗂️");
+      const notionOk = await createNotionPage(cfg, payload);
+      await addOwnReaction(event.channel_id, event.message_id, notionOk ? "📥" : "⚠️");
     } else if (action === "first_principles") {
       await sendMessage(cfg.firstPrinciplesChannelId, `请用第一性原理分析这条 OpenClaw 回复：\n${url}\n\n${content.slice(0, 1600)}`);
       await addOwnReaction(event.channel_id, event.message_id, "🧾");
     } else if (action === "pin_local") {
-      appendLocalArchive("pin", payload);
+      appendTodo("todo", payload);
       await addOwnReaction(event.channel_id, event.message_id, "📍");
     }
   } catch (err) {

@@ -11,7 +11,6 @@
   "firstPrinciplesChannelId": "1477875227651477595",
   "codingChannelId": "1503783731612090419",
   "backupScript": "/Users/zhangfeng/openclaw-config-backup/scripts/auto-update-and-push.sh",
-  "inboxMarkdown": "/Users/zhangfeng/.openclaw/reaction-actions/inbox/reactions.md",
   "notion": {
     "enabled": true,
     "parentPageId": "360d7b39-339d-8079-b18a-d7236766a928",
@@ -23,5 +22,6 @@
     "❤": "archive",
     "🧠": "first_principles",
     "📌": "pin_local"
-  }
+  },
+  "todoMarkdown": "/Users/zhangfeng/.openclaw/reaction-actions/todo/todolist.md"
 }
