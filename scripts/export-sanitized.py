@@ -242,9 +242,21 @@ def export_ops() -> None:
             "tokenRoles": sorted((raw.get("tokens") or {}).keys()),
         })
 
-    launch_agent = Path("/Users/zhangfeng/Library/LaunchAgents/local.openclaw.config-backup.plist")
-    if launch_agent.exists():
-        copy_text(launch_agent, OUT / "ops" / "launchd" / launch_agent.name)
+    for launch_agent in [
+        Path("/Users/zhangfeng/Library/LaunchAgents/local.openclaw.config-backup.plist"),
+        Path("/Users/zhangfeng/Library/LaunchAgents/local.openclaw.reaction-actions.plist"),
+    ]:
+        if launch_agent.exists():
+            copy_text(launch_agent, OUT / "ops" / "launchd" / launch_agent.name)
+
+    reaction_dir = SRC / "reaction-actions"
+    if reaction_dir.exists():
+        for src in [reaction_dir / "config.json", reaction_dir / "watcher.js"]:
+            if src.exists():
+                if src.suffix == ".json":
+                    copy_json(src, OUT / "ops" / "reaction-actions" / src.name)
+                else:
+                    copy_text(src, OUT / "ops" / "reaction-actions" / src.name)
 
     comp = SRC / "completions"
     if comp.exists():

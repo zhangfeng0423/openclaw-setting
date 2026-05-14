@@ -154,5 +154,17 @@
     "model": "gemini-2.5-flash",
     "fallbackNoticeSelectedModel": null,
     "fallbackNoticeActiveModel": null
+  },
+  "agent:main:discord:channel:1504501579741659278": {
+    "sessionId": "d40dd5b7-883f-4219-8f2b-cfac17804f26",
+    "updatedAt": 1778771575017,
+    "displayName": "discord:1477328362530935060#daily",
+    "chatType": "channel",
+    "channel": "discord",
+    "groupId": "1504501579741659278",
+    "modelProvider": "google",
+    "model": "gemini-2.5-flash",
+    "fallbackNoticeSelectedModel": null,
+    "fallbackNoticeActiveModel": null
   }
 }

@@ -1,0 +1,27 @@
+{
+  "guildId": "1477328362530935060",
+  "ownerUserIds": [
+    "1181866569429692537"
+  ],
+  "allowedParentChannelIds": [
+    "1477875227651477595",
+    "1503783731612090419",
+    "1504404656950870017"
+  ],
+  "firstPrinciplesChannelId": "1477875227651477595",
+  "codingChannelId": "1503783731612090419",
+  "backupScript": "/Users/zhangfeng/openclaw-config-backup/scripts/auto-update-and-push.sh",
+  "inboxMarkdown": "/Users/zhangfeng/.openclaw/reaction-actions/inbox/reactions.md",
+  "notion": {
+    "enabled": true,
+    "parentPageId": "",
+    "proxy": "http://127.0.0.1:7897"
+  },
+  "emojiActions": {
+    "✅": "backup",
+    "❤️": "archive",
+    "❤": "archive",
+    "🧠": "first_principles",
+    "📌": "pin_local"
+  }
+}

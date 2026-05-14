@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>local.openclaw.reaction-actions</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/zhangfeng/.nvm/versions/node/v22.22.0/bin/node</string>
+    <string>/Users/zhangfeng/.openclaw/reaction-actions/watcher.js</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>NODE_PATH</key>
+    <string>/Users/zhangfeng/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/node_modules</string>
+  </dict>
+  <key>WorkingDirectory</key>
+  <string>/Users/zhangfeng/.openclaw/reaction-actions</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/zhangfeng/.openclaw/reaction-actions/logs/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/zhangfeng/.openclaw/reaction-actions/logs/launchd.err.log</string>
+</dict>
+</plist>
