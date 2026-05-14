@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "profiles": {
+    "cliproxyapi:default": {
+      "type": "api_key",
+      "provider": "cliproxyapi",
+      "key": "${REDACTED}"
+    }
+  },
+  "usageStats": {
+    "cliproxyapi:default": {
+      "lastUsed": 0,
+      "errorCount": 0
+    }
+  }
+}

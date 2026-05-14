@@ -1,0 +1,439 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.26",
+    "lastTouchedAt": "2026-05-14T08:36:23.659Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-28T17:06:00.830Z",
+    "lastRunVersion": "2026.2.26",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "browser": {
+    "ssrfPolicy": {
+      "dangerouslyAllowPrivateNetwork": true,
+      "hostnameAllowlist": [
+        "cdn.discordapp.com",
+        "*.discord.com",
+        "discord.com",
+        "feishu.cn",
+        "*.feishu.cn"
+      ]
+    }
+  },
+  "auth": {
+    "profiles": {
+      "minimax-cn:default": {
+        "provider": "minimax-cn",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax-cn": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "api": "anthropic-messages",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": "${REDACTED}"
+          }
+        ]
+      },
+      "google": {
+        "api": "google-generative-ai",
+        "apiKey": "${REDACTED}",
+        "models": [
+          {
+            "id": "gemini-2.5-flash",
+            "name": "Gemini 2.5 Flash",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": "${REDACTED}"
+          }
+        ],
+        "baseUrl": "https://generativelanguage.googleapis.com/v1beta"
+      },
+      "cliproxyapi": {
+        "baseUrl": "http://192.168.2.170:8317/v1",
+        "apiKey": "${REDACTED}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "claude-sonnet-4-6",
+            "name": "#coding - Claude Sonnet 4.6",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 200000,
+            "maxTokens": "${REDACTED}",
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "api": "openai-completions"
+          },
+          {
+            "id": "claude-opus-4-6-thinking",
+            "name": "#architect - Claude Opus 4.6 Thinking",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 200000,
+            "maxTokens": "${REDACTED}",
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "api": "openai-completions"
+          },
+          {
+            "id": "gpt-oss-120b-medium",
+            "name": "#oss - GPT OSS 120B Medium",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 131072,
+            "maxTokens": "${REDACTED}",
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "api": "openai-completions"
+          },
+          {
+            "id": "gemini-3.1-flash-lite-preview",
+            "name": "Gemini 3.1 Flash Lite Preview",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": "${REDACTED}",
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "api": "openai-completions"
+          },
+          {
+            "id": "gemini-2.5-flash",
+            "name": "Gemini 2.5 Flash",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": "${REDACTED}",
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "api": "openai-completions"
+          },
+          {
+            "id": "gemini-2.5-flash-lite",
+            "name": "Gemini 2.5 Flash Lite",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": "${REDACTED}",
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "api": "openai-completions"
+          },
+          {
+            "id": "gemini-3-flash-preview",
+            "name": "Gemini 3 Flash Preview",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": "${REDACTED}",
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "api": "openai-completions"
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google/gemini-2.5-flash"
+      },
+      "models": {
+        "minimax-cn/MiniMax-M2.5": {
+          "alias": "Minimax"
+        },
+        "google/gemini-2.5-flash": {
+          "alias": "Gemini Flash"
+        },
+        "cliproxyapi/gemini-3.1-flash-lite-preview": {
+          "alias": "Gemini 3.1 Flash Lite Preview"
+        },
+        "cliproxyapi/gemini-2.5-flash": {
+          "alias": "Gemini 2.5 Flash"
+        },
+        "cliproxyapi/gemini-2.5-flash-lite": {
+          "alias": "Gemini 2.5 Flash Lite"
+        },
+        "cliproxyapi/gemini-3-flash-preview": {
+          "alias": "Gemini 3 Flash Preview"
+        }
+      },
+      "workspace": "/Users/zhangfeng/.openclaw/workspace",
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "1h"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "timeoutSeconds": 600,
+      "heartbeat": {
+        "every": "30m"
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "first-principles",
+        "name": "first-principles",
+        "workspace": "/Users/zhangfeng/.openclaw/workspaces/first-principles",
+        "agentDir": "/Users/zhangfeng/.openclaw/agents/first-principles/agent",
+        "model": "cliproxyapi/gemini-3.1-flash-lite-preview"
+      },
+      {
+        "id": "dev",
+        "name": "dev",
+        "workspace": "/Users/zhangfeng/.openclaw/workspaces/dev",
+        "agentDir": "/Users/zhangfeng/.openclaw/agents/dev/agent",
+        "model": "cliproxyapi/gemini-3.1-flash-lite-preview",
+        "identity": {
+          "name": "Engineer Agent",
+          "emoji": "🛠️"
+        }
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "first-principles",
+      "comment": "Route Discord #ai-product to product/strategy mentor",
+      "match": {
+        "channel": "discord",
+        "accountId": "*",
+        "peer": {
+          "kind": "channel",
+          "id": "1477875227651477595"
+        },
+        "guildId": "1477328362530935060"
+      }
+    },
+    {
+      "agentId": "dev",
+      "comment": "Route Discord #coding to engineer agent",
+      "match": {
+        "channel": "discord",
+        "accountId": "*",
+        "peer": {
+          "kind": "channel",
+          "id": "1503783731612090419"
+        },
+        "guildId": "1477328362530935060"
+      }
+    }
+  ],
+  "messages": {
+    "queue": {
+      "mode": "steer",
+      "byChannel": {
+        "discord": "collect"
+      },
+      "debounceMs": 3000
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer",
+    "identityLinks": {
+      "owner": [
+        "discord:1181866569429692537"
+      ]
+    },
+    "parentForkMaxTokens": "${REDACTED}"
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "token": "${REDACTED}",
+      "proxy": "http://127.0.0.1:7897",
+      "groupPolicy": "allowlist",
+      "streaming": "partial",
+      "mediaMaxMb": 25,
+      "guilds": {
+        "1477328362530935060": {
+          "requireMention": false,
+          "reactionNotifications": "all",
+          "users": [
+            "1181866569429692537"
+          ],
+          "channels": {
+            "1477875227651477595": {
+              "allow": true,
+              "requireMention": false,
+              "enabled": true,
+              "users": [
+                "1181866569429692537"
+              ],
+              "systemPrompt": "Act as a product/strategy agent. Push from fuzzy ideas to crisp product decisions, tradeoffs, requirements, and next actions.",
+              "includeThreadStarter": true
+            },
+            "1503783731612090419": {
+              "allow": true,
+              "requireMention": false,
+              "enabled": true,
+              "users": [
+                "1181866569429692537"
+              ],
+              "systemPrompt": "Act as an engineer agent. Prefer concrete implementation plans, code changes, verification, and concise status reporting.",
+              "includeThreadStarter": true
+            },
+            "1503783633075568740": {
+              "allow": true,
+              "requireMention": false,
+              "enabled": true,
+              "users": [
+                "1181866569429692537"
+              ],
+              "systemPrompt": "Use this channel for operational logs and low-noise status updates.",
+              "includeThreadStarter": true
+            },
+            "1478012757050785853": {
+              "allow": true,
+              "requireMention": false,
+              "enabled": true,
+              "users": [
+                "1181866569429692537"
+              ],
+              "systemPrompt": "Use this channel for practical English practice and concise correction.",
+              "includeThreadStarter": true
+            },
+            "1503786601736831158": {
+              "allow": true,
+              "requireMention": false,
+              "enabled": true,
+              "users": [
+                "1181866569429692537"
+              ],
+              "systemPrompt": "Use this channel for visual/image tasks and media discussion.",
+              "includeThreadStarter": true
+            },
+            "1504404656950870017": {
+              "enabled": true,
+              "allow": true,
+              "requireMention": false,
+              "users": [
+                "1181866569429692537"
+              ],
+              "includeThreadStarter": true,
+              "autoThread": true,
+              "systemPrompt": "This Discord channel is the daily inbox. Treat each top-level message as a topic starter. Continue substantive work inside the auto-created thread and keep the parent channel as a clean topic index."
+            },
+            "1504404667852132453": {
+              "enabled": true,
+              "allow": true,
+              "requireMention": false,
+              "users": [
+                "1181866569429692537"
+              ],
+              "includeThreadStarter": true,
+              "systemPrompt": "This channel is for scheduled information digests and reading summaries. Prefer concise grouped summaries, source links, and action items."
+            },
+            "1504404678970966017": {
+              "enabled": true,
+              "allow": true,
+              "requireMention": false,
+              "users": [
+                "1181866569429692537"
+              ],
+              "includeThreadStarter": true,
+              "systemPrompt": "This channel is the automation heartbeat panel. Report cron/heartbeat status, failures, next runs, and operational notes tersely."
+            }
+          }
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "${REDACTED}"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "plugins": {
+    "entries": {
+      "discord": {
+        "enabled": true
+      }
+    }
+  }
+}

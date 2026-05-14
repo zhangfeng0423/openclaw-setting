@@ -1,0 +1,179 @@
+{
+  "providers": {
+    "minimax-cn": {
+      "baseUrl": "https://api.minimaxi.com/anthropic",
+      "api": "anthropic-messages",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": "${REDACTED}",
+          "api": "anthropic-messages"
+        }
+      ],
+      "apiKey": "${REDACTED}"
+    },
+    "cliproxyapi": {
+      "baseUrl": "http://192.168.2.170:8317/v1",
+      "apiKey": "${REDACTED}",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "claude-sonnet-4-6",
+          "name": "#coding - Claude Sonnet 4.6",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": "${REDACTED}"
+        },
+        {
+          "id": "claude-opus-4-6-thinking",
+          "name": "#architect - Claude Opus 4.6 Thinking",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": "${REDACTED}"
+        },
+        {
+          "id": "gpt-oss-120b-medium",
+          "name": "#oss - GPT OSS 120B Medium",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "maxTokens": "${REDACTED}"
+        },
+        {
+          "id": "gemini-3.1-flash-lite-preview",
+          "name": "Gemini 3.1 Flash Lite Preview",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1048576,
+          "maxTokens": "${REDACTED}"
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1048576,
+          "maxTokens": "${REDACTED}"
+        },
+        {
+          "id": "gemini-2.5-flash-lite",
+          "name": "Gemini 2.5 Flash Lite",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1048576,
+          "maxTokens": "${REDACTED}"
+        },
+        {
+          "id": "gemini-3-flash-preview",
+          "name": "Gemini 3 Flash Preview",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1048576,
+          "maxTokens": "${REDACTED}"
+        }
+      ]
+    },
+    "google": {
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "apiKey": "${REDACTED}",
+      "api": "google-generative-ai",
+      "models": [
+        {
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": "${REDACTED}",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "api": "google-generative-ai"
+        }
+      ]
+    }
+  }
+}

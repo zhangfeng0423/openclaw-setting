@@ -1,0 +1,13 @@
+# never commit real runtime state or secrets
+.env
+*.bak*
+*.tmp*
+*.log
+logs/
+sessions/
+credentials/
+delivery-queue/
+media/
+memory/
+**/MEMORY.md
+**/memory/
