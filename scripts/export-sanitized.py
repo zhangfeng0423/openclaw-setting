@@ -242,6 +242,10 @@ def export_ops() -> None:
             "tokenRoles": sorted((raw.get("tokens") or {}).keys()),
         })
 
+    launch_agent = Path("/Users/zhangfeng/Library/LaunchAgents/local.openclaw.config-backup.plist")
+    if launch_agent.exists():
+        copy_text(launch_agent, OUT / "ops" / "launchd" / launch_agent.name)
+
     comp = SRC / "completions"
     if comp.exists():
         for src in sorted(comp.iterdir()):
