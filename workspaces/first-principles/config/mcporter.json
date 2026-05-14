@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "sequentialthinking-cloud": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    }
+  }
+}

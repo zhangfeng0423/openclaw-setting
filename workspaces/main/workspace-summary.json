@@ -1,11 +1,20 @@
 {
-  "workspace": "/Users/zhangfeng/.openclaw/workspace",
-  "files": [
+  "source": "/Users/zhangfeng/.openclaw/workspace",
+  "instructionFiles": [
     "AGENTS.md",
     "SOUL.md",
     "TOOLS.md",
     "IDENTITY.md",
     "USER.md",
     "HEARTBEAT.md"
+  ],
+  "docs": [
+    "docs/guitar/新手目标指南.md",
+    "docs/openclaw-discord-workbench.md"
+  ],
+  "skills": [
+    "notion",
+    "openclaw-tavily-search",
+    "web-content-fetcher"
   ]
 }

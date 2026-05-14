@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "sequential-thinking": {
+      "name": "Sequential Thinking",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=sequential-thinking",
+      "source": "skillhub",
+      "version": "1.0.0"
+    }
+  }
+}

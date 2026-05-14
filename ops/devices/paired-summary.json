@@ -1,0 +1,52 @@
+[
+  {
+    "deviceId": "${REDACTED_DEVICE_ID}",
+    "publicKey": "${REDACTED_PUBLIC_KEY}",
+    "platform": "darwin",
+    "clientId": "gateway-client",
+    "clientMode": "backend",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.read",
+      "operator.admin",
+      "operator.write",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "approvedScopes": [
+      "operator.read",
+      "operator.admin",
+      "operator.write",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "createdAtMs": 1772293729510,
+    "approvedAtMs": 1772298656891
+  },
+  {
+    "deviceId": "${REDACTED_DEVICE_ID}",
+    "publicKey": "${REDACTED_PUBLIC_KEY}",
+    "platform": "MacIntel",
+    "clientId": "openclaw-control-ui",
+    "clientMode": "webchat",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "approvedScopes": [
+      "operator.admin",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "createdAtMs": 1772294624459,
+    "approvedAtMs": 1772294624459
+  }
+]

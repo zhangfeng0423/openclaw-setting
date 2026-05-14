@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "deviceId": "${REDACTED_DEVICE_ID}",
+  "hasPublicKey": true,
+  "hasPrivateKey": true,
+  "createdAtMs": 1772293628961
+}

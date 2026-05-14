@@ -11,3 +11,5 @@ media/
 memory/
 **/MEMORY.md
 **/memory/
+**/node_modules/
+**/.git/

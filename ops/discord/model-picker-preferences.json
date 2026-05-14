@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "entries": {
+    "discord:default:guild:1477328362530935060:user:1181866569429692537": {
+      "recent": [
+        "cliproxyapi/gemini-3-flash-preview",
+        "cliproxyapi/gemini-3.1-flash-lite-preview",
+        "cliproxyapi-local/gemini-2.5-flash",
+        "cliproxyapi/gemini-3.1-flash-lite",
+        "cliproxyapi/gemini-2.5-flash"
+      ],
+      "updatedAt": "2026-05-14T14:02:56.399Z"
+    }
+  }
+}

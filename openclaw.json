@@ -11,7 +11,7 @@
   },
   "browser": {
     "ssrfPolicy": {
-      "dangerouslyAllowPrivateNetwork": true,
+      "dangerouslyAllowPrivateNetwork": "${REDACTED}",
       "hostnameAllowlist": [
         "cdn.discordapp.com",
         "*.discord.com",

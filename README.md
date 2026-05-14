@@ -1,20 +1,26 @@
 # OpenClaw Config Backup
 
-Sanitized OpenClaw configuration snapshot. Secrets, API keys, tokens, session logs, credentials, delivery queues, and memory files are intentionally excluded or redacted.
+Richer sanitized OpenClaw configuration snapshot. This repository is designed for version control and upgrade recovery reference. Secrets, API keys, tokens, private keys, raw session logs, credentials, delivery queues, binary browser state, and memory databases are excluded or redacted.
 
-## Layout
+## What Is Included
 
-- `openclaw.json`: global routing, providers, agent bindings, and defaults with secrets redacted.
-- `agents/*/agent/models.json`: per-agent model registries.
-- `agents/*/agent/auth-profiles.json`: auth profile structure with keys redacted.
-- `workspaces/*`: selected workspace instruction files. Personal `USER.md` is redacted.
+- Global `openclaw.json` routing and provider structure with secrets redacted.
+- Per-agent `models.json` and `auth-profiles.json` structure.
+- Session index summaries, without raw conversation transcripts.
+- Workspace instruction files, docs, config, and text-based skill source files.
+- Cron jobs, Discord model picker preferences, device/identity summaries, update status, and shell completions.
 
-## Current Routing
+## What Is Not Included
 
-- Global default: `google/gemini-2.5-flash`
-- `first-principles`: `cliproxyapi/gemini-3.1-flash-lite-preview`
-- `dev`: `cliproxyapi/gemini-3.1-flash-lite-preview`
+- Real API keys, tokens, private keys, credentials, logs, raw sessions, media, browser data, SQLite memory, and personal `USER.md` content.
 
-## Restore Notes
+## Update
 
-Replace `${REDACTED}` placeholders with real secrets locally. Do not commit real secrets.
+```bash
+cd ~/openclaw-config-backup
+python3 scripts/export-sanitized.py
+git diff
+git add .
+git commit -m "Update OpenClaw config backup"
+git push
+```

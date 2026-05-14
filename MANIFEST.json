@@ -1,0 +1,79 @@
+{
+  "source": "/Users/zhangfeng/.openclaw",
+  "agents": [
+    "main",
+    "first-principles",
+    "dev"
+  ],
+  "workspaces": {
+    "main": {
+      "source": "/Users/zhangfeng/.openclaw/workspace",
+      "instructionFiles": [
+        "AGENTS.md",
+        "SOUL.md",
+        "TOOLS.md",
+        "IDENTITY.md",
+        "USER.md",
+        "HEARTBEAT.md"
+      ],
+      "docs": [
+        "docs/guitar/新手目标指南.md",
+        "docs/openclaw-discord-workbench.md"
+      ],
+      "skills": [
+        "notion",
+        "openclaw-tavily-search",
+        "web-content-fetcher"
+      ]
+    },
+    "first-principles": {
+      "source": "/Users/zhangfeng/.openclaw/workspaces/first-principles",
+      "instructionFiles": [
+        "AGENTS.md",
+        "SOUL.md",
+        "TOOLS.md",
+        "IDENTITY.md",
+        "USER.md",
+        "HEARTBEAT.md",
+        "BOOTSTRAP.openclaw-default.md"
+      ],
+      "docs": [],
+      "skills": [
+        ".skills_store_lock.json",
+        "first-principles-decomposer",
+        "ljg-card",
+        "ljg-learn",
+        "ljg-plain",
+        "ljg-roundtable",
+        "openclaw-find-skills",
+        "openclaw-tavily-search",
+        "sequential-thinking",
+        "skillhub-preference",
+        "web-content-fetcher"
+      ]
+    },
+    "dev": {
+      "source": "/Users/zhangfeng/.openclaw/workspaces/dev",
+      "instructionFiles": [
+        "AGENTS.md",
+        "SOUL.md",
+        "TOOLS.md",
+        "IDENTITY.md",
+        "USER.md",
+        "HEARTBEAT.md"
+      ],
+      "docs": [],
+      "skills": []
+    }
+  },
+  "excluded": [
+    "credentials",
+    "logs",
+    "raw sessions",
+    "memory sqlite",
+    "browser data",
+    "media",
+    "delivery-queue",
+    "real tokens and private keys"
+  ]
+}

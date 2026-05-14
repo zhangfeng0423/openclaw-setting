@@ -1,0 +1,26 @@
+{
+  "name": "web-content-fetcher",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirenchuang/web-content-fetcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shirenchuang/web-content-fetcher/issues"
+  },
+  "homepage": "https://github.com/shirenchuang/web-content-fetcher#readme",
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "jsdom": "^29.1.1",
+    "playwright": "^1.60.0",
+    "turndown": "^7.2.4"
+  }
+}

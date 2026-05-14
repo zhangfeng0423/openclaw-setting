@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2",
+      "agentId": "main",
+      "sessionKey": "${REDACTED}",
+      "name": "上海英语角",
+      "enabled": true,
+      "createdAtMs": 1778686257498,
+      "updatedAtMs": 1778760064126,
+      "schedule": {
+        "tz": "Asia/Shanghai",
+        "expr": "0 20 * * *",
+        "kind": "cron"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "晚上8点啦！是时候开启上海英语角了~ 跟我聊聊你今天在上海的见闻，或者描述一个你喜欢的上海角落。",
+        "model": "default",
+        "thinking": "off"
+      },
+      "delivery": {
+        "to": "1478012757050785853",
+        "channel": "discord",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1778846400000,
+        "lastRunAtMs": 1778760000156,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 63970,
+        "lastError": "500 Invalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[0]': Cannot find field.\nInvalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[1]': Cannot find field.\nInvalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[2]': Cannot find field.\nInvalid JSON payload received. Unknown name \"patternProperties\" at 'tools[0].function_declarations[3].parameters.properties[2].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[3]': Cannot find f…",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 1
+      }
+    }
+  ]
+}

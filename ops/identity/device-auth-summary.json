@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "deviceId": "${REDACTED_DEVICE_ID}",
+  "tokenRoles": [
+    "operator"
+  ]
+}

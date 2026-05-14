@@ -1,11 +1,13 @@
 {
-  "workspace": "/Users/zhangfeng/.openclaw/workspaces/dev",
-  "files": [
+  "source": "/Users/zhangfeng/.openclaw/workspaces/dev",
+  "instructionFiles": [
     "AGENTS.md",
     "SOUL.md",
     "TOOLS.md",
     "IDENTITY.md",
     "USER.md",
     "HEARTBEAT.md"
-  ]
+  ],
+  "docs": [],
+  "skills": []
 }
