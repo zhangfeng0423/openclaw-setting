@@ -3,8 +3,8 @@
     "deviceId": "${REDACTED_DEVICE_ID}",
     "publicKey": "${REDACTED_PUBLIC_KEY}",
     "platform": "darwin",
-    "clientId": "gateway-client",
-    "clientMode": "backend",
+    "clientId": "cli",
+    "clientMode": "cli",
     "role": "operator",
     "roles": [
       "operator"

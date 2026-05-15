@@ -1,13 +1,13 @@
 {
   "agent:first-principles:main": {
     "sessionId": "0781afb6-e378-4c6b-b22e-4b97beda1e4d",
-    "updatedAt": 1778687386907,
+    "updatedAt": 1778823225689,
     "displayName": null,
     "chatType": null,
     "channel": null,
     "groupId": null,
     "modelProvider": "cliproxyapi",
-    "model": "claude-sonnet-4-6",
+    "model": "gemini-3.1-flash-lite-preview",
     "fallbackNoticeSelectedModel": null,
     "fallbackNoticeActiveModel": null
   },

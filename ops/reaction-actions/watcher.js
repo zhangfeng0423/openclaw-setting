@@ -9,6 +9,9 @@ const CONFIG_PATH = process.env.OPENCLAW_REACTION_CONFIG || "/Users/zhangfeng/.o
 const OPENCLAW_CONFIG = process.env.OPENCLAW_CONFIG || "/Users/zhangfeng/.openclaw/openclaw.json";
 const LOG_FILE = "/Users/zhangfeng/.openclaw/reaction-actions/logs/watcher.log";
 const NODE_NAME = "openclaw-reaction-actions";
+const OPENCLAW_NODE = "/Users/zhangfeng/.nvm/versions/node/v22.22.0/bin/node";
+const OPENCLAW_CLI = "/Users/zhangfeng/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/openclaw.mjs";
+const OPENCLAW_BIN_DIR = "/Users/zhangfeng/.nvm/versions/node/v22.22.0/bin";
 
 function log(...args) {
   const line = `[${new Date().toISOString()}] ${args.map((x) => typeof x === "string" ? x : JSON.stringify(x)).join(" ")}\n`;
@@ -137,6 +140,52 @@ function runBackup(script) {
   });
 }
 
+function runFirstPrinciples(payload) {
+  return new Promise((resolve) => {
+    const prompt = [
+      "请用第一性原理分析这条 OpenClaw 回复。",
+      "",
+      `原消息: ${payload.url}`,
+      `来源频道: ${payload.channelId}`,
+      `消息 ID: ${payload.messageId}`,
+      "",
+      payload.content || "(no text content)",
+    ].join("\n").slice(0, 6000);
+    const args = [
+      OPENCLAW_CLI,
+      "agent",
+      "--agent",
+      "first-principles",
+      "--message",
+      prompt,
+      "--deliver",
+      "--reply-channel",
+      "discord",
+      "--reply-to",
+      `channel:${payload.channelId}`,
+      "--timeout",
+      "600",
+    ];
+    const env = {
+      ...process.env,
+      HOME: process.env.HOME || "/Users/zhangfeng",
+      PATH: `${OPENCLAW_BIN_DIR}:${process.env.PATH || "/usr/bin:/bin:/usr/sbin:/sbin"}`,
+    };
+    const child = spawn(OPENCLAW_NODE, args, { env, stdio: ["ignore", "pipe", "pipe"] });
+    let stdout = "";
+    let stderr = "";
+    child.stdout.on("data", (d) => {
+      stdout += d.toString();
+      log("first_principles stdout", d.toString().trim().slice(0, 1000));
+    });
+    child.stderr.on("data", (d) => {
+      stderr += d.toString();
+      log("first_principles stderr", d.toString().trim().slice(0, 1000));
+    });
+    child.on("close", (code) => resolve({ code, stdout, stderr }));
+  });
+}
+
 async function allowedChannel(cfg, channelId) {
   if (cfg.allowedParentChannelIds.includes(channelId)) return true;
   try {
@@ -195,8 +244,10 @@ async function handleReaction(event, botUserId) {
       log("notion archive finished", { notionOk });
       await addOwnReaction(event.channel_id, event.message_id, notionOk ? "📥" : "⚠️");
     } else if (action === "first_principles") {
-      await sendMessage(cfg.firstPrinciplesChannelId, `请用第一性原理分析这条 OpenClaw 回复：\n${url}\n\n${content.slice(0, 1600)}`);
       await addOwnReaction(event.channel_id, event.message_id, "🧾");
+      const result = await runFirstPrinciples(payload);
+      log("first_principles finished", { code: result.code });
+      await addOwnReaction(event.channel_id, event.message_id, result.code === 0 ? "📨" : "⚠️");
     } else if (action === "pin_local") {
       appendTodo("todo", payload);
       log("todo append finished", { file: cfg.todoMarkdown });
