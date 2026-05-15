@@ -42,6 +42,10 @@ function discordApiBase() {
   return "https://discord.com/api/v10";
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function requestDiscord(method, route, body) {
   const { token, proxy } = loadRuntime();
   const url = `${discordApiBase()}${route}`;
@@ -54,10 +58,20 @@ async function requestDiscord(method, route, body) {
     },
   };
   if (body !== undefined) opts.body = JSON.stringify(body);
-  const res = await fetch(url, opts);
-  const text = await res.text();
-  if (!res.ok) throw new Error(`Discord ${method} ${route} ${res.status}: ${text.slice(0, 500)}`);
-  return text ? JSON.parse(text) : null;
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const res = await fetch(url, opts);
+      const text = await res.text();
+      if (!res.ok) throw new Error(`Discord ${method} ${route} ${res.status}: ${text.slice(0, 500)}`);
+      return text ? JSON.parse(text) : null;
+    } catch (err) {
+      lastErr = err;
+      log("discord request failed", { method, route, attempt, error: String(err.message || err) });
+      if (attempt < 3) await sleep(1000 * attempt);
+    }
+  }
+  throw lastErr;
 }
 
 async function fetchMessage(channelId, messageId) {
@@ -142,14 +156,18 @@ function runBackup(script) {
 
 function runFirstPrinciples(payload) {
   return new Promise((resolve) => {
+    const content = (payload.content || "(no text content)").replace(/https:\/\/discord\.com\/channels\/\S+/g, "[Discord message link omitted]");
     const prompt = [
       "请用第一性原理分析这条 OpenClaw 回复。",
+      "重要约束：不要打开、抓取或调用工具访问任何 URL；只分析下面已经提供的回复正文。",
+      "如果正文里包含链接，把它当作引用标记，不要请求用户再次粘贴内容。",
       "",
-      `原消息: ${payload.url}`,
+      `原消息链接，仅作溯源不要访问: ${payload.url}`,
       `来源频道: ${payload.channelId}`,
       `消息 ID: ${payload.messageId}`,
       "",
-      payload.content || "(no text content)",
+      "待分析正文：",
+      content,
     ].join("\n").slice(0, 6000);
     const args = [
       OPENCLAW_CLI,
