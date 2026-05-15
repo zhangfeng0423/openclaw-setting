@@ -8,7 +8,7 @@
       "name": "上海英语角",
       "enabled": true,
       "createdAtMs": 1778686257498,
-      "updatedAtMs": 1778760064126,
+      "updatedAtMs": 1778846427572,
       "schedule": {
         "tz": "Asia/Shanghai",
         "expr": "0 20 * * *",
@@ -28,15 +28,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1778846400000,
-        "lastRunAtMs": 1778760000156,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 63970,
-        "lastError": "500 Invalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[0]': Cannot find field.\nInvalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[1]': Cannot find field.\nInvalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[2]': Cannot find field.\nInvalid JSON payload received. Unknown name \"patternProperties\" at 'tools[0].function_declarations[3].parameters.properties[2].value': Cannot find field.\nInvalid JSON payload received. Unknown name \"strict\" at 'tools[0].function_declarations[3]': Cannot find f…",
+        "nextRunAtMs": 1778932800000,
+        "lastRunAtMs": 1778846400138,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 27434,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 1
+        "consecutiveErrors": 0
       }
     }
   ]

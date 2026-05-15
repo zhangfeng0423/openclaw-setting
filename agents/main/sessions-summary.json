@@ -85,7 +85,7 @@
   },
   "agent:main:discord:channel:1478012757050785853": {
     "sessionId": "1bac91e2-52e6-4671-b13d-933876dc49f7",
-    "updatedAt": 1778766766172,
+    "updatedAt": 1778853299729,
     "displayName": "discord:1477328362530935060#english-improving",
     "chatType": "channel",
     "channel": "discord",
@@ -132,25 +132,13 @@
     "fallbackNoticeActiveModel": null
   },
   "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2": {
-    "sessionId": "7a4f5c96-1991-44a5-b53f-46547ad45ffb",
-    "updatedAt": 1778760000315,
+    "sessionId": "44dd65c3-2374-4706-b4f2-b6d0e0770c29",
+    "updatedAt": 1778846400153,
     "displayName": null,
     "chatType": null,
     "channel": null,
     "groupId": null,
-    "modelProvider": "cliproxyapi-local",
-    "model": "gemini-2.5-flash",
-    "fallbackNoticeSelectedModel": null,
-    "fallbackNoticeActiveModel": null
-  },
-  "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2:run:7a4f5c96-1991-44a5-b53f-46547ad45ffb": {
-    "sessionId": "7a4f5c96-1991-44a5-b53f-46547ad45ffb",
-    "updatedAt": 1778760000315,
-    "displayName": null,
-    "chatType": null,
-    "channel": null,
-    "groupId": null,
-    "modelProvider": "cliproxyapi-local",
+    "modelProvider": "google",
     "model": "gemini-2.5-flash",
     "fallbackNoticeSelectedModel": null,
     "fallbackNoticeActiveModel": null
@@ -162,6 +150,18 @@
     "chatType": "channel",
     "channel": "discord",
     "groupId": "1504501579741659278",
+    "modelProvider": "google",
+    "model": "gemini-2.5-flash",
+    "fallbackNoticeSelectedModel": null,
+    "fallbackNoticeActiveModel": null
+  },
+  "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2:run:44dd65c3-2374-4706-b4f2-b6d0e0770c29": {
+    "sessionId": "44dd65c3-2374-4706-b4f2-b6d0e0770c29",
+    "updatedAt": 1778846400153,
+    "displayName": null,
+    "chatType": null,
+    "channel": null,
+    "groupId": null,
     "modelProvider": "google",
     "model": "gemini-2.5-flash",
     "fallbackNoticeSelectedModel": null,
