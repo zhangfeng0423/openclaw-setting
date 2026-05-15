@@ -130,7 +130,7 @@ async function appendNotionArchive(cfg, payload) {
     ],
   };
   const opts = {
-    method: "POST",
+    method: "PATCH",
     headers: {
       Authorization: `Bearer ${token}`,
       "Notion-Version": "2022-06-28",
