@@ -112,21 +112,21 @@ function appendTodo(kind, payload) {
   fs.appendFileSync(file, content);
 }
 
-async function createNotionPage(cfg, payload) {
+async function appendNotionArchive(cfg, payload) {
   const notionKeyPath = path.join(process.env.HOME || "/Users/zhangfeng", ".config/notion/api_key");
   const parentPageId = cfg.notion?.parentPageId;
   if (!cfg.notion?.enabled || !parentPageId || !fs.existsSync(notionKeyPath)) {
     return false;
   }
   const token = fs.readFileSync(notionKeyPath, "utf8").trim();
+  const title = payload.content?.split(/\r?\n/)[0]?.trim().slice(0, 120) || "OpenClaw reply";
   const body = {
-    parent: { page_id: parentPageId },
-    properties: {
-      title: [{ text: { content: `Discord archive ${new Date().toISOString().slice(0, 10)}` } }],
-    },
     children: [
+      { object: "block", type: "heading_3", heading_3: { rich_text: [{ text: { content: `${new Date().toISOString()} ${title}` } }] } },
       { object: "block", type: "paragraph", paragraph: { rich_text: [{ text: { content: payload.url } }] } },
+      { object: "block", type: "paragraph", paragraph: { rich_text: [{ text: { content: `Channel: ${payload.channelId} | Message: ${payload.messageId}` } }] } },
       { object: "block", type: "paragraph", paragraph: { rich_text: [{ text: { content: payload.content?.slice(0, 1900) || "(no text content)" } }] } },
+      { object: "block", type: "divider", divider: {} },
     ],
   };
   const opts = {
@@ -139,9 +139,9 @@ async function createNotionPage(cfg, payload) {
     body: JSON.stringify(body),
   };
   if (cfg.notion?.proxy) opts.dispatcher = new (require("undici").ProxyAgent)(cfg.notion.proxy);
-  const res = await fetch("https://api.notion.com/v1/pages", opts);
+  const res = await fetch(`https://api.notion.com/v1/blocks/${parentPageId}/children`, opts);
   const text = await res.text();
-  if (!res.ok) throw new Error(`Notion create page failed ${res.status}: ${text.slice(0, 500)}`);
+  if (!res.ok) throw new Error(`Notion append failed ${res.status}: ${text.slice(0, 500)}`);
   return true;
 }
 
@@ -258,7 +258,7 @@ async function handleReaction(event, botUserId) {
       log("backup finished", { code });
       await addOwnReaction(event.channel_id, event.message_id, code === 0 ? "☑️" : "⚠️");
     } else if (action === "archive") {
-      const notionOk = await createNotionPage(cfg, payload);
+      const notionOk = await appendNotionArchive(cfg, payload);
       log("notion archive finished", { notionOk });
       await addOwnReaction(event.channel_id, event.message_id, notionOk ? "📥" : "⚠️");
     } else if (action === "first_principles") {
