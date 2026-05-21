@@ -8,7 +8,7 @@
       "name": "上海英语角",
       "enabled": true,
       "createdAtMs": 1778686257498,
-      "updatedAtMs": 1779278521393,
+      "updatedAtMs": 1779364931546,
       "schedule": {
         "tz": "Asia/Shanghai",
         "expr": "0 20 * * *",
@@ -28,14 +28,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1779364800000,
-        "lastRunAtMs": 1779278400036,
+        "nextRunAtMs": 1779451200000,
+        "lastRunAtMs": 1779364800081,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 121357,
+        "lastDurationMs": 131465,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 2,
+        "consecutiveErrors": 3,
         "lastError": "The AI service is temporarily overloaded. Please try again in a moment."
       }
     }
