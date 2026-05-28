@@ -8,7 +8,7 @@
       "name": "上海英语角",
       "enabled": true,
       "createdAtMs": 1778686257498,
-      "updatedAtMs": 1779883256321,
+      "updatedAtMs": 1779969621490,
       "schedule": {
         "tz": "Asia/Shanghai",
         "expr": "0 20 * * *",
@@ -28,11 +28,11 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1779969600000,
-        "lastRunAtMs": 1779883200080,
+        "nextRunAtMs": 1780056000000,
+        "lastRunAtMs": 1779969600010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 56241,
+        "lastDurationMs": 21480,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
