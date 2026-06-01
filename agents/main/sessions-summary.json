@@ -132,8 +132,8 @@
     "fallbackNoticeActiveModel": null
   },
   "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2": {
-    "sessionId": "e34d8e5f-8aae-4f5a-822f-d6c938fcd860",
-    "updatedAt": 1780228800160,
+    "sessionId": "e54ee986-7133-4eb2-9633-2385fff1fea3",
+    "updatedAt": 1780315200127,
     "displayName": null,
     "chatType": null,
     "channel": null,
@@ -155,9 +155,9 @@
     "fallbackNoticeSelectedModel": null,
     "fallbackNoticeActiveModel": null
   },
-  "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2:run:e34d8e5f-8aae-4f5a-822f-d6c938fcd860": {
-    "sessionId": "e34d8e5f-8aae-4f5a-822f-d6c938fcd860",
-    "updatedAt": 1780228800160,
+  "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2:run:e54ee986-7133-4eb2-9633-2385fff1fea3": {
+    "sessionId": "e54ee986-7133-4eb2-9633-2385fff1fea3",
+    "updatedAt": 1780315200127,
     "displayName": null,
     "chatType": null,
     "channel": null,
