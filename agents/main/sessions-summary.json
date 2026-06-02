@@ -85,7 +85,7 @@
   },
   "agent:main:discord:channel:1478012757050785853": {
     "sessionId": "1bac91e2-52e6-4671-b13d-933876dc49f7",
-    "updatedAt": 1780228812203,
+    "updatedAt": 1780401612255,
     "displayName": "discord:1477328362530935060#english-improving",
     "chatType": "channel",
     "channel": "discord",
@@ -132,8 +132,8 @@
     "fallbackNoticeActiveModel": null
   },
   "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2": {
-    "sessionId": "e54ee986-7133-4eb2-9633-2385fff1fea3",
-    "updatedAt": 1780315200127,
+    "sessionId": "5afe3154-1140-4143-b7d4-824dc65df945",
+    "updatedAt": 1780401600187,
     "displayName": null,
     "chatType": null,
     "channel": null,
@@ -155,9 +155,9 @@
     "fallbackNoticeSelectedModel": null,
     "fallbackNoticeActiveModel": null
   },
-  "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2:run:e54ee986-7133-4eb2-9633-2385fff1fea3": {
-    "sessionId": "e54ee986-7133-4eb2-9633-2385fff1fea3",
-    "updatedAt": 1780315200127,
+  "agent:main:cron:1e4ca09b-d4f4-4fb8-81cd-4ef9f47dbac2:run:5afe3154-1140-4143-b7d4-824dc65df945": {
+    "sessionId": "5afe3154-1140-4143-b7d4-824dc65df945",
+    "updatedAt": 1780401600187,
     "displayName": null,
     "chatType": null,
     "channel": null,
